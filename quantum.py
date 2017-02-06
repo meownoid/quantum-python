@@ -20,6 +20,7 @@ class QRegister:
         assert self._n == gate._n
         self._data = gate._data @ self._data
 
+
 class QGate:
     def __init__(self, matrix):
         self._data = np.array(matrix, dtype=np.complex64)
