@@ -33,3 +33,14 @@ class QGate:
         assert self._n.is_integer()
 
         self._n = int(self._n)
+
+    def __matmul__(self, other):
+        return QGate(np.kron(self._data, other._data))
+
+    def __pow__(self, n, modulo=None):
+        x = self._data.copy()
+
+        for _ in range(n - 1):
+            x = np.kron(x, self._data)
+
+        return QGate(x)
