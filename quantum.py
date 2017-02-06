@@ -14,3 +14,8 @@ class QRegister:
         states = np.arange(2 ** self._n)
         mstate = np.random.choice(states, size=1, p=probs)[0]
         return f'{mstate:>0{self._n}b}'
+
+    def apply(self, gate):
+        assert isinstance(gate, QGate)
+        assert self._n == gate._n
+        self._data = gate._data @ self._data
