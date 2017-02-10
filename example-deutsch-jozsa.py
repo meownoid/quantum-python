@@ -7,7 +7,7 @@ def is_constant(f, n):
     q.apply(U(f, n))
     q.apply(H ** n @ I)
 
-    return q.measure()[:~0] == '0' * n:
+    return q.measure()[:~0] == '0' * n
 
 
 def f1(x):
